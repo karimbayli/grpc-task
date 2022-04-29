@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	cmd "mgidAssignment/pkg/cmd/server"
+	cmd "github.com/karimbayli/mgid-task/pkg/cmd/server"
 	"os"
 )
 

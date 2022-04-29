@@ -3,11 +3,11 @@ package v1
 import (
 	"context"
 	"errors"
+	v1 "github.com/karimbayli/mgid-task/pkg/api/v1"
+	"github.com/karimbayli/mgid-task/pkg/models"
+	"github.com/karimbayli/mgid-task/utils"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"mgidAssignment/pkg/api/v1"
-	"mgidAssignment/pkg/models"
-	"mgidAssignment/utils"
 	"sort"
 	"time"
 )

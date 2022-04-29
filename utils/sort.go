@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"mgidAssignment/pkg/models"
+	"github.com/karimbayli/mgid-task/pkg/models"
 	"unicode"
 )
 

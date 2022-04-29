@@ -4,8 +4,8 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"mgidAssignment/pkg/protocol/grpc"
-	"mgidAssignment/pkg/service/v1"
+	"github.com/karimbayli/mgid-task/pkg/protocol/grpc"
+	v1 "github.com/karimbayli/mgid-task/pkg/service/v1"
 )
 
 type Config struct {

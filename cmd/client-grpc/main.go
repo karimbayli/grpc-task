@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"flag"
+	v1 "github.com/karimbayli/mgid-task/pkg/api/v1"
 	"google.golang.org/grpc"
 	"log"
-	"mgidAssignment/pkg/api/v1"
 	"time"
 )
 

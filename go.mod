@@ -1,4 +1,4 @@
-module mgidAssignment
+module github.com/karimbayli/mgid-task
 
 go 1.17
 

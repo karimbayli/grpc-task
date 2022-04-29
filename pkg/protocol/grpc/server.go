@@ -2,9 +2,9 @@ package grpc
 
 import (
 	"context"
+	v1 "github.com/karimbayli/mgid-task/pkg/api/v1"
 	"google.golang.org/grpc"
 	"log"
-	v1 "mgidAssignment/pkg/api/v1"
 	"net"
 	"os"
 	"os/signal"
