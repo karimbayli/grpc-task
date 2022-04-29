@@ -31,8 +31,10 @@ func (s *service) GetImitatedTimeout(ctx context.Context, request *v1.GetImitate
 }
 
 func (s *service) GetSortedEmployees(ctx context.Context, request *v1.GetSortedEmployeesRequest) (*v1.GetSortedEmployeesResponse, error) {
-	//TODO implement me
 	allEmployees := s.GetAllEmployees()
+	if len(allEmployees) == 0 {
+		return nil, ErrEmptyEmployeeList
+	}
 	switch request.GetField() {
 	case "name":
 		sort.Sort(utils.ByName(allEmployees))
@@ -41,9 +43,7 @@ func (s *service) GetSortedEmployees(ctx context.Context, request *v1.GetSortedE
 	case "salary":
 		sort.Sort(utils.BySalary(allEmployees))
 	}
-	if len(allEmployees) == 0 {
-		return nil, ErrEmptyEmployeeList
-	}
+
 	var sortedList []*v1.Employee
 	for _, v := range allEmployees {
 		var employee = &v1.Employee{
@@ -126,75 +126,6 @@ func (s *service) GetHighestPaid(ctx context.Context, request *v1.GetHighestPaid
 		Yob:    highestPaidEmployee.Employee[0].Yob,
 	}}, nil
 }
-
-/*func (s *service) GetAverageOfSalaries() (float64, error) {
-	var employeesSalarySlice = s.GetAllEmployees()
-	var salaries float64
-	//employees :=
-	for _, em := range employeesSalarySlice {
-		salaries += em.Salary
-	}
-
-	return salaries / float64(len(employeesSalarySlice)), nil
-}
-
-func (s *service) GetImitatedTimeout() error {
-	//TODO implement me
-	time.Sleep(8 * time.Second)
-	fmt.Println("sleep")
-	return nil
-}
-
-func (s *service) GetSortedEmployees(field string) ([]models.Employee, error) {
-	allEmployees := s.GetAllEmployees()
-	switch field {
-	case "name":
-		sort.Sort(utils.ByName(allEmployees))
-	case "yearOfBirth":
-		sort.Sort(utils.ByAge(allEmployees))
-	case "salary":
-		sort.Sort(utils.BySalary(allEmployees))
-	}
-	if len(allEmployees) == 0 {
-		return nil, fmt.Errorf("empty employee list")
-	}
-	return allEmployees, nil
-}
-
-func (s *service) GetAllEmployees() []models.Employee {
-	var employees []models.Employee
-
-	for _, v := range s.m {
-		employees = append(employees, v)
-	}
-	return employees
-}
-
-func (s *service) GetEldestEmployee() (models.Employee, error) {
-	//TODO implement me
-	eldestEmployee, _ := s.GetSortedEmployees("age")
-	return eldestEmployee[0], nil
-
-}
-
-func (s *service) GetHighestPaid() (models.Employee, error) {
-	highestPaidEmployee, _ := s.GetSortedEmployees("salary")
-	return highestPaidEmployee[0], nil
-}
-
-func (s *service) GetMedianOfSalaries() (float64, error) {
-	var employeesSalarySlice = s.GetAllEmployees()
-	var salaries []float64
-	//employees :=
-	for _, id := range employeesSalarySlice {
-		salaries = append(salaries, id.Salary)
-					if u, ok := s.m[id]; ok {
-					result[id] = u
-				}
-	}
-	//fmt.Println(salaries)
-	return utils.CalcMedian(salaries), nil
-}*/
 
 // NewService instantiates a new Service.
 func NewService( /* a database connection would be injected here */ ) v1.EmployeeServiceServer {
