@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package grpc;
+option go_package ="./grpc";    // Added code
+
+
+service EmployeeService {
+  rpc GetImitatedTimeout (GetImitatedTimeoutRequest) returns (Empty){}
+  rpc GetSortedEmployees (GetSortedEmployeesRequest) returns (GetSortedEmployeesResponse) {}
+  rpc GetEldestEmployee (GetEldestEmployeeRequest) returns (GetEldestEmployeeResponse) {}
+  rpc GetMedianOfSalaries (GetMedianOfSalariesRequest) returns (GetMedianOfSalariesResponse) {}
+  rpc GetAverageOfSalaries (GetAverageOfSalariesRequest) returns (GetAverageOfSalariesResponse) {}
+  rpc GetHighestPaid (GetHighestPaidRequest) returns (GetHighestPaidResponse) {}
+}
+
+message Employee {
+  string name = 1;
+  float salary = 2;
+  int32 yob = 3;
+}
+message Empty {
+
+}
+
+message GetImitatedTimeoutRequest {
+}
+message GetImitatedTimeoutResponse {
+}
+
+message GetSortedEmployeesRequest {
+  string field = 1;
+}
+message GetSortedEmployeesResponse {
+  repeated Employee employee = 1;
+}
+
+message GetEldestEmployeeRequest {
+}
+message GetEldestEmployeeResponse {
+  Employee employee = 1;
+}
+
+message GetMedianOfSalariesRequest {
+}
+message GetMedianOfSalariesResponse {
+  float medianOfSalary = 1;
+}
+
+message GetAverageOfSalariesRequest {
+}
+message GetAverageOfSalariesResponse {
+  float averageOfSalary = 1;
+}
+
+message GetHighestPaidRequest {
+}
+message GetHighestPaidResponse {
+  Employee employee = 1;
+}
