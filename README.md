@@ -1,5 +1,5 @@
 # 
-## MGID test assignment
+## assignment
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -7,13 +7,13 @@
 
 ## Requirements
 
-сервис на основе grpc, реализует:
-- метод-заглушка, иммитирующий долгую операцию, таймаут зафиксирован
-  несколько методов на основе полученного списка сотрудников (name, yob, salary)
-- возвращает отсортированый по указаному полю список
-- возвращать самого старшего, самого дорогого
-- среднюю зп, медиану
-  реализовать юнит тесты для методов сервиса
+grpc based service, implements:
+- stub method that simulates a long operation, the timeout is fixed
+   multiple methods based on the received list of employees (name, yob, salary)
+- returns a list sorted by the specified field
+- return the oldest, most expensive
+- average salary, median
+   implement unit tests for service methods
 
 
 
